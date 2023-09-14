@@ -7,24 +7,25 @@ function App() {
 const [ urName,  seturName]= useState("")
 const [fetchData , setfetchData]=useState (null)
 
-const fetchAge =()=>{
-Axios.get (  `https://api.agify.io/?name=${urName}`).then ((res)=>{
-  setfetchData(res.data)
-});
-};
   return (
     <>
     <div className="App">
-      <input       placeholder='Ex. krishna' onChange={(event)=>{
-seturName(event.target.value)
+      <Router>
+        <div  className='navbar'>
+<Link to="/"  >   Home  </Link>
+<Link to="/menu"  >  Menu  </Link>
+<Link to="/contact"  >   Contact  </Link>
 
-      }}  />
-<div>
-<button onClick={fetchAge}      >Predict Age </button>
-</div>
-<h1>Name: {fetchData?.name}</h1>
-<h1>Age: {fetchData?.age}</h1>
-     
+        </div>
+<Routes>
+<Route path="/"   element={ <Home/>}  />
+<Route path="/menu"   element={ <Menu/>}  />
+<Route path="/contact"   element={ <Contact/>}  />
+
+
+</Routes>
+
+      </Router>
     </div>
     </>
   );

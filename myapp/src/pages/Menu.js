@@ -1,4 +1,3 @@
 export const Menu =()=>{
-
-    return <h1>    this is menu page</h1>
+    return <h1> this is the menu page  </h1>
 }
